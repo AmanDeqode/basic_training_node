@@ -1,0 +1,19 @@
+{
+  "name": "node_training",
+  "version": "1.0.0",
+  "description": "Node_training",
+  "main": "module1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmanDeqode/basic_training_node.git"
+  },
+  "author": "Aman Chaudhary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmanDeqode/basic_training_node/issues"
+  },
+  "homepage": "https://github.com/AmanDeqode/basic_training_node#readme"
+}
