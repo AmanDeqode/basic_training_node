@@ -66,5 +66,4 @@ app.get("/",(req,res)=>{
 
 app.listen(PORT,()=>{
     console.log(`server is connected at localhost:${PORT}`)
-}
-);
+});

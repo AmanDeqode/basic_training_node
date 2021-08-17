@@ -41,7 +41,6 @@ fs.readFile(path.join(__dirname,'jsonfile.txt'),'utf-8',(err,data)=>{
             I am going to complete my graduation Year = ${objData.passingYear},
             MY like to play ${objData.hobbies.slice(0,2)} and like to watch ${objData.hobbies.slice(2)}
             `
-        );
+        )
     }
-}
-);
+});

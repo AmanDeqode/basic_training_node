@@ -17,5 +17,4 @@ console.log(`platform ==> ${os.platform()}`)
 
 console.log(os.tmpdir());
 
-console.log(os.type()
-);
+console.log(os.type());
