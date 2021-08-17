@@ -12,22 +12,23 @@ const info = {
     ]
 }
 
-const jsonInfo = JSON.stringify(info)
-
-//console.log(jsonInfo);
+const jsonInfo = JSON.stringify(info);
 
 fs.writeFile(path.join(__dirname,'jsonfile.txt'),jsonInfo,(err)=>{
     if(err)
     {
-        return console.error(err.message);
+        console.error(err.message);
+        return
     }
-    return console.log("Data added successfully");
+        console.log("Data added successfully");
+        return
 });
 
 fs.readFile(path.join(__dirname,'jsonfile.txt'),'utf-8',(err,data)=>{
     if(err)
     {
-        return console.error(err.message);
+        console.error(err.message);
+        return
     }
     else{
         const objData = JSON.parse(jsonInfo);
@@ -40,6 +41,7 @@ fs.readFile(path.join(__dirname,'jsonfile.txt'),'utf-8',(err,data)=>{
             I am going to complete my graduation Year = ${objData.passingYear},
             MY like to play ${objData.hobbies.slice(0,2)} and like to watch ${objData.hobbies.slice(2)}
             `
-        )
+        );
     }
-});
+}
+);

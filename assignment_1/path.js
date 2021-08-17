@@ -9,8 +9,6 @@ console.log(path.extname(__filename));
 
 console.log(path.basename(__filename));
 
-//console.log(path.parse('/home/deq/node_training/module1/path.js'));
-
 const info = path.parse(__filename);
 
 const {root,dir,base,ext,name} = info;
