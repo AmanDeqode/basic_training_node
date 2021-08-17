@@ -52,7 +52,7 @@ app.get("/",(req,res)=>{
         }
     });
     
-})
+});
 
 
 // fs.unlink(path.join(__dirname,'data.txt'),(err)=>{
