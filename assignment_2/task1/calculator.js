@@ -2,13 +2,20 @@ const ps = require('prompt-sync');
 
 const prompt0 = ps();
 
-console.log("Which operation you want to perform\n For Add Press = 1\n For Substract Press= 2\n For Multiply Press = 3\n For Divide Press= 4\n For Exit = 0\n")
+const finalPrompt = ps();
 
-const value0 = prompt0("Please select a valid input ");
+const finalValue = finalPrompt("To use calculator press 1 else 0 ");
 
-if(+value0===0)
+do{
+
+    console.log("Which operation you want to perform\n For Add Press = 1\n For Substract Press= 2\n For Multiply Press = 3\n For Divide Press= 4\n For Exit = 0\n")
+
+    const value0 = prompt0("Please select a valid input ");
+
+    if(+value0===0)
 {
     console.log("Thank you");
+    break;
 }
 else
 {
@@ -50,3 +57,6 @@ if(isNaN(+value1) || isNaN(+value2))
             break;
     }
 }
+
+
+}while(finalValue!=0);
