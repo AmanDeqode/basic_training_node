@@ -1,56 +1,52 @@
-const readline = require('readline');
+const ps = require('prompt-sync');
 
-console.log('Welcome to calculator');
+const prompt0 = ps();
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+console.log("Which operation you want to perform\n For Add Press = 1\n For Substract Press= 2\n For Multiply Press = 3\n For Divide Press= 4\n For Exit = 0\n")
 
-rl.question('Which action you would like to perform\n For addition press - 1\n For substraction press - 2 \n For multiplication press - 3 \n For division press - 4\n',(result)=>{
-    const value = +result;
+const value0 = prompt0("Please select a valid input ");
 
-    switch(value)
+if(+value0===0)
+{
+    console.log("Thank you");
+}
+else
+{
+    const prompt1 = ps();
+    const prompt2 = ps();
+
+    let value1 = prompt1("Enter the first number = ");
+    let value2 = prompt2("Enter the second number = ");
+
+if(isNaN(+value1) || isNaN(+value2))
+{
+    console.log("Invalid input")
+}
+
+    switch(+value0)
     {
         case 1:
-            rl.question('Please enter the first number :', (num1)=>{
-                rl.question('Please enter the second number :',(num2)=>{
-                    let result  = +num1 + +num2;
-                    console.log(`The sum of the above two numbers ${result}`);
-                    rl.close();
-                })
-            });
+            let sum = +value1 + +value2;
+
+            console.log(sum);
             break;
         case 2:
-            rl.question('Please enter the first number :', (num1)=>{
-                rl.question('Please enter the second number :',(num2)=>{
-                    let result  = +num1 - +num2;
-                    console.log(`The substraction of the above two numbers ${result}`);
-                    rl.close();
-                })
-            });
+            let sub = +value1 - +value2;
+
+            console.log(sub);
             break;
         case 3:
-            rl.question('Please enter the first number :', (num1)=>{
-                rl.question('Please enter the second number :',(num2)=>{
-                    let result  = +num1 * +num2;
-                    console.log(`The multiplication of the above two numbers ${result}`);
-                    rl.close();
-                })
-            });
+            let multi = +value1 * +value2;
+
+            console.log(multi);
             break;
         case 4:
-            rl.question('Please enter the first number :', (num1)=>{
-                rl.question('Please enter the second number :',(num2)=>{
-                    let result  = +num1 / +num2;
-                    console.log(`The Division of the above two numbers ${result}`);
-                    rl.close();
-                })
-            });
+            let divide = +value1 / +value2;
+
+            console.log(divide);
             break;
         default:
-            console.log("Invalid Input");
-            rl.close();
-
+            console.log("You select invalid input ");
+            break;
     }
-});
+}
