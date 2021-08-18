@@ -5,73 +5,69 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const introQuestion = () =>{
-    return new Promise((resolve,reject)=>{
-        rl.question('Which action you would like to perform\n For addition press - 1\n For substraction press - 2 \n For multiplication press - 3 \n For division press - 4\n Enter 0 to exit \n',(result)=>{
-            if(isNaN(+result))
-            {
-                reject("Invalid Input try again");
-            }
-            else
-            {
-                resolve(+result);
-            }
+const askQue1 = (msg) =>{
+
+    return new Promise((resolve)=>{
+        rl.question(msg,(result)=>{
+            resolve(result);
         });
     });
 }
 
-const question1 = () => {
-    return new Promise((resolve, reject) => {
-      rl.question('Please enter the first number ', (nums1) => {
-        rl.question('Please enter the second number ', (nums2) => {
-            if(isNaN(+nums2) || isNaN(+nums1))
-            {
-              reject("You enter an invalid input ");
-              return rl.close();
-            }
-            else
-            {
-                resolve([+nums2,+nums1]);
-            }
-        });
+const askInput1 = (question) => {
+    return new Promise((resolve) => {
+      rl.question(question, (nums1) => {
+        resolve(nums1);
       });
     });
   }
+
+const askInput2 = (question) =>{
+    return new Promise((resolve) =>{
+        rl.question(question, (nums2) => {
+            resolve(nums2);
+        });
+    })
+}
   
-  const main = async () => {
+  async function calculator(){
       try {
 
         console.log("Welcome to Calculator\n");
 
-        const value = await introQuestion();
+        const value = await askQue1('Which action you would like to perform\n For addition press - 1\n For substraction press - 2 \n For multiplication press - 3 \n For division press - 4\n Enter 0 to exit \n');
         
-        if(value===0)
+        if(+value===0)
         {
             console.log("Thank you ");
             rl.close();
         }
         else
         {
-            const fetchValue = await question1();
-            const value1 = fetchValue[0];
-            const value2 = fetchValue[1];
+            const value1 = await askInput1('Please enter the first number ');
+            const value2 = await askInput2('Please enter the second number ');
+            
+            if(isNaN(+value1) || isNaN(+value2))
+            {
+                console.log("Invalid Input");
+            }
 
             switch(+value)
             {
                 case 1:
-                    const sum = value1 + value2;
+                    const sum = +value1 + +value2;
                     console.log(`sum of ${value1} and ${value2} = ${sum}`);
                     break;
                 case 2:
-                    const subs = value1 - value2;
+                    const subs = +value1 - +value2;
                     console.log(`substraction of ${value1} and ${value2} = ${subs}`);
                     break;
                 case 3:
-                    const multi = value1 * value2;
+                    const multi = +value1 * +value2;
                     console.log(`multiplication of ${value1} and ${value2} = ${multi}`);
                     break;
                 case 4:
-                    const divide = value1/value2;
+                    const divide = +value1/+value2;
                     console.log(`division of ${value1} and ${value2} = ${divide}`);
                 default:
                     console.log('Invalid Input');
@@ -88,4 +84,4 @@ const question1 = () => {
     
   }
   
-  main()
+  calculator()
