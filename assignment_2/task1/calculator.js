@@ -4,7 +4,7 @@ const prompt0 = ps();
 
 const finalPrompt = ps();
 
-const finalValue = finalPrompt("To use calculator press 1 else 0 ");
+const finalValue = finalPrompt("Welcome to calculator press to enter any key to enter");
 
 do{
 
