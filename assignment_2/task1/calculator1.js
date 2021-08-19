@@ -5,7 +5,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-const askQue1 = (msg) =>{
+const askQuestion = (msg) =>{
 
     return new Promise((resolve)=>{
         rl.question(msg,(result)=>{
@@ -14,28 +14,12 @@ const askQue1 = (msg) =>{
     });
 }
 
-const askInput1 = (question) => {
-    return new Promise((resolve) => {
-      rl.question(question, (nums1) => {
-        resolve(nums1);
-      });
-    });
-  }
-
-const askInput2 = (question) =>{
-    return new Promise((resolve) =>{
-        rl.question(question, (nums2) => {
-            resolve(nums2);
-        });
-    })
-}
-  
   async function calculator(){
       try {
 
         console.log("Welcome to Calculator\n");
 
-        const value = await askQue1('Which action you would like to perform\n For addition press - 1\n For substraction press - 2 \n For multiplication press - 3 \n For division press - 4\n Enter 0 to exit \n');
+        const value = await askQuestion('Which action you would like to perform\n For addition press - 1\n For substraction press - 2 \n For multiplication press - 3 \n For division press - 4\n Enter 0 to exit \n');
         
         if(+value===0)
         {
@@ -44,8 +28,8 @@ const askInput2 = (question) =>{
         }
         else
         {
-            const value1 = await askInput1('Please enter the first number ');
-            const value2 = await askInput2('Please enter the second number ');
+            const value1 = await askQuestion('Please enter the first number ');
+            const value2 = await askQuestion('Please enter the second number ');
             
             if(isNaN(+value1) || isNaN(+value2))
             {
