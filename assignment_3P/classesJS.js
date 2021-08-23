@@ -27,7 +27,13 @@ class Personal extends Company {
 }
 console.log(Company.deqode());
 
+//console.log(Personal.deqode());
+
  const objPersonal = new Personal("Aman Chaudhary","Full Stack Developer",22,"B.Tech",2021,["Nodejs","React"]);
 
  const objEmp = new Company("Deqode",["Mobile","Web","BlockChain"],9);
+
+ console.log(objEmp.statement());
+
+ //console.log(objEmp.deqode());
 

@@ -6,6 +6,9 @@ function Company(givenName,givenPosition,givenAge){
     this.statement = function(){
         return `I am ${this.name} and I am a ${this.position}`
     }
+    Company.deqode = function(){
+        return 'Deqode is an IT industry'
+    }
 };
 
 function Personal(givenName,givenPosition,givenAge,givenDegree,givenPassoutYear,myTech){
@@ -16,7 +19,9 @@ function Personal(givenName,givenPosition,givenAge,givenDegree,givenPassoutYear,
     this.tech = myTech;
 };
 
-let comObj = new Company("Deqode",["Mobile","Web","BlockChain"],9)
+let comObj = new Company("Deqode",["Mobile","Web","BlockChain"],9);
+
+console.log(Company.deqode());
 
 console.log('Company has been called\n');
 
