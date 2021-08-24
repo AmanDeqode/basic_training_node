@@ -26,15 +26,3 @@ str.forEach((s)=> {
 
 console.log(arr.join(' '));
 
-
-// const firstChar = str.charAt(0);
-
-// if(firstChar === firstChar.toUpperCase())
-// {
-//     console.log(str);
-// }
-// else{
-//     const newStr = str.replace(firstChar,firstChar.toUpperCase());
-
-//     console.log(newStr);
-// }
