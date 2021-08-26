@@ -2,6 +2,7 @@ const employee = {
     id:1,
     name:'Aman Chaudhary',
     age:22,
+    alpha:Number(12),
     education:[
         {
             qualification: 'B.Tech',
@@ -40,6 +41,12 @@ const employee = {
 
 function deepClone(obj){
 
+    //console.log(obj.id);
+
+    console.log(obj);
+
+    console.log('=====================================================');
+
     let copyObj ={};
 
     
@@ -67,9 +74,9 @@ function deepClone(obj){
 
 const clonedObject = deepClone(employee);
 
-console.log(employee);
+//console.log(employee);
 
 
-console.log(clonedObject);
+//console.log(clonedObject);
 
 

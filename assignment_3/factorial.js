@@ -1,12 +1,12 @@
-
 function outerFactorialFunction(value){
-    
+    let store = value;
     return function innerFactorialFunction(){
         let fact = 1;
-        while(value>1)
+        let access = store;
+        while(access>1)
         {
-            fact = fact*value;
-            value--;
+            fact = fact*access;
+            access--;
         }
         return fact;
     }
@@ -14,8 +14,7 @@ function outerFactorialFunction(value){
 
 let innerFactorialFunction = outerFactorialFunction(8)
 
-let result = innerFactorialFunction();
-
-console.log(result);
-console.log(result);
-console.log(result);
+console.log(innerFactorialFunction());
+console.log(innerFactorialFunction());
+console.log(innerFactorialFunction());
+console.log(innerFactorialFunction());

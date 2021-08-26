@@ -1,5 +1,0 @@
-You work with the system having specification :-
- x64 
- deq 
- Linux
- Current Time 2021-08-17
