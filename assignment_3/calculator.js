@@ -13,10 +13,10 @@ function Calculator(){
     }
 }
 
-const calc = new Calculator();
+const calculate = new Calculator();
 
-calc.read();
+calculate.read();
 
-console.log(calc.sum());
+console.log(calculate.sum());
 
-console.log(calc.mul());
+console.log(calculate.mul());

@@ -1,28 +1,62 @@
-let str = 'deqode industry'
+// let str = 'deqode industry'
 
-str = str.split(' ');
+// str = str.split(' ');
 
-//console.log(str);
+// let arr = [];
 
-let arr = [];
+// str.forEach((s)=> {
+//     const firstChar = s.charAt(0);
 
-str.forEach((s)=> {
-    const firstChar = s.charAt(0);
+//     const newStr = s.replace(firstChar,firstChar.toUpperCase());
 
-    if(firstChar === firstChar.toUpperCase)
+//     arr.push(newStr);
+// });
+
+// console.log(arr.join(' '));
+
+const arr = [
     {
-        arr.push(s);
-        return ;
-    }
-    else
+      name: 'D',
+      technologies: [{
+        name: 'JAVA',
+        experience: '2 years'
+      },
+      {
+        name: 'Javascript',
+        experience: '5 years',
+      }]
+    },
     {
-        const newStr = s.replace(firstChar,firstChar.toUpperCase());
-        arr.push(newStr);
-        return;
+      name: 'C',
+      technologies: [{
+        name: 'NodeJs',
+        experience: '5 years'
+      },
+      {
+        name: 'Typescript',
+        experience: '10 years',
+      }]
+    },
+    {
+      name: 'K',
+      technologies: [{
+        name: 'CPP',
+        experience: '10 years'
+      },
+      {
+        name: 'Python',
+        experience: '10 years',
+      }]
     }
-});
+  ]
 
-//console.log(str);
 
-console.log(arr.join(' '));
+ const technologies = arr.flatMap((item)=> item.technologies)
+
+ console.log(technologies);
+
+
+ 
+ //console.log(arr.flat());
+
 
