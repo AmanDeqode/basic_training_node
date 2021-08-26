@@ -2,7 +2,6 @@ const employee = {
     id:1,
     name:'Aman Chaudhary',
     age:22,
-    alpha:Number(12),
     education:[
         {
             qualification: 'B.Tech',
@@ -41,32 +40,58 @@ const employee = {
 
 function deepClone(obj){
 
-    //console.log(obj.id);
+    //console.log(obj);
 
-    console.log(obj);
-
-    console.log('=====================================================');
+    //console.log('=====================================================');
 
     let copyObj ={};
-
     
     if(obj instanceof Array)
     {
         copyObj = [];
 
         obj.forEach((data,index)=>{
-            copyObj[index] = deepClone(data);
+
+            if(data instanceof Object)
+            {
+                console.log('data',data);
+                copyObj[index] = deepClone(data)
+            }
+            else if(String === typeof data)
+            {
+                copyObj[index] = obj[data]
+            }
+            else
+            {
+                copyObj[index] = data;
+            }
         })
     }
     else if(obj instanceof Object)
     {
+        copyObj = {};
         for(let key in obj)
         {
-        
-                copyObj[key] = deepClone(obj[key])
+                if(obj[key] instanceof Array)
+                {
+                    //console.log('obj[key]',obj[key])
+                     copyObj[key] = deepClone(obj[key])
+                }
+                else if(obj[key] instanceof Object)
+                {
+                    //console.log('obj[key]*',obj[key])
+                    copyObj[key] = deepClone(obj[key])  
+                }
+                else
+                {
+                    //console.log('Object ne direct entry dedi');
+                    copyObj[key] = obj[key]
+
+                }
         }
     }
     else{
+        
         copyObj = obj;
     }
     return copyObj;
@@ -74,9 +99,5 @@ function deepClone(obj){
 
 const clonedObject = deepClone(employee);
 
-//console.log(employee);
-
-
-//console.log(clonedObject);
-
+console.log(clonedObject);
 
