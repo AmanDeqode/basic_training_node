@@ -1,8 +1,8 @@
 function outerFactorialFunction(value){
-    let store = value;
-    return function innerFactorialFunction(){
+    
+    return function(){
         let fact = 1;
-        let access = store;
+        let access = value;
         while(access>1)
         {
             fact = fact*access;
