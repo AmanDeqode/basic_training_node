@@ -327,6 +327,10 @@ let arrayOfElements =
 
     // ================================  Question 3 =========================================
 
+    //How do I remove the object in my array subBrands that is nested inside another 
+    //array where the id property of an object is = to 31. I'm trying to get the whole parent array 
+    //back without that subBrand removed
+
     const brandArray = [
       {
         "id": 10,
@@ -425,7 +429,12 @@ let arrayOfElements =
       }
     ]
 
+    brandArray.forEach((brands)=>{
+      const removeId = brands.subBrands.findIndex((brandId)=>(brandId.id===31))
+      brands.subBrands.splice(removeId,1)
+    })
 
+    console.log(JSON.stringify(brandArray,undefined,4));
 
 
 
@@ -459,47 +468,50 @@ let arrayOfElements =
 
     const reg3 = /[0-9]/g;
 
-    console.log(regExp.exec(password));
+    // console.log(regExp.exec(password));
 
-    console.log(reg1.exec(password));
+    // console.log(reg1.exec(password));
 
-    console.log(reg2.exec(password));
+    // console.log(reg2.exec(password));
 
-    console.log(reg2.exec(password));
+    // console.log(reg2.exec(password));
 
-    console.log(reg2.exec(password));
+    // console.log(reg2.exec(password));
 
-    console.log(reg2.exec(password));
+    // console.log(reg2.exec(password));
 
-    console.log(regExp1.exec(password));
+    // console.log(regExp1.exec(password));
 
-    console.log(regExp2.exec(password));
+    // console.log(regExp2.exec(password));
 
-    console.log(reg3.exec(password));
+    // console.log(reg3.exec(password));
 
-    console.log(reg3.exec(password));
+    // console.log(reg3.exec(password));
 
-    console.log(reg3.exec(password));
+    // console.log(reg3.exec(password));
 
-    const string = 'There are 12345678 floors'
+    // const string = 'There are 12345678 floors'
 
-    const reg4 = /\d{7}/
+    // const reg4 = /\d{7}/
 
-    console.log(string.match(reg4));
+    // console.log(string.match(reg4));
 
-    const reg5 = /\d{9}/
+    // const reg5 = /\d{9}/
 
-    console.log(string.match(reg5));
+    // console.log(string.match(reg5));
 
-    console.log(reg4.test(string))
+    // console.log(reg4.test(string))
 
-    const reg6 = /\b\d{5}\b/
+    // const reg6 = /\b\d{5}\b/
 
-    console.log(string.match(reg6))
+    // console.log(string.match(reg6))
 
-    const string1 = 'booh boooooooh'
+    // const string1 = 'booh boooooooh'
 
-    const reg7 = /o{5,}/g
+    // const reg7 = /o{5,}/g
 
-    console.log(string1.match(reg7))
+    // console.log(string1.match(reg7))
+
+
+    
 
