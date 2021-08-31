@@ -1,1 +1,0 @@
-{"name":"aman","tech":"full stack developer","passingYear":2021,"hobbies":["chess","table tennis","motivational videos"],"favourites":[{"fruit":"mango"},{"fun":"comedy"}]}
