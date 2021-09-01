@@ -34,3 +34,4 @@ const emailValidation = async() =>{
 }
 
 emailValidation()
+

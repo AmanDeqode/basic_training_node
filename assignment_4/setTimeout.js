@@ -20,8 +20,8 @@ const CPU = () =>{
 }
 
 
-process1()
-process2()
-process3()
+process1();
+process2();
+process3();
 
-CPU()
+CPU();

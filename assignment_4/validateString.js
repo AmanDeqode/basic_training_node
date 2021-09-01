@@ -1,6 +1,6 @@
 function validateString(input, callback) {
 
-    setTimeout(function () {
+    setTimeout(function() {
   
       // input is said to be valid if it is a lowercase string
   
@@ -28,34 +28,42 @@ function validateString(input, callback) {
     if(isValid)
     {
       obj[pickOut] = isValid;
-  
     }
     else
     {
       obj[pickOut] = false;
     }
+    return obj;
   }
-  
-  setTimeout(()=>{
-    console.log(obj);
-  },510);
-
  
   const arrayElement = () =>{
     if(inputArray.length!==0)
     {
       const value = inputArray.shift();
-     
       arr1.push(value);
 
-      validateString(value,checkInput);
-      arrayElement();
+      const resultData = new Promise((resolve,reject)=>{
+        return validateString(value,function(err,isValid){
+          let pickOut = arr1.pop();
+          
+          if(isValid)
+          {
+            obj[pickOut] = isValid;
+          }
+          if(isValid===null)
+          {
+            obj[pickOut] = false;
+          }
+          else if(arr1.length===0)
+          {
+            resolve(obj); 
+          }
+        })
+      });
+      resultData.then((obj)=> console.log('obj',obj));
      
-      return value;
+      arrayElement();
     }
   }
   
   arrayElement();
-
-
-  
