@@ -17,4 +17,45 @@ function validateString(input, callback) {
   
   }
 
-  console.log(validateString(['first', 'Second', 'thiRd', 4, false, 'true']))
+  const inputArray = ['first', 'Second', 'thiRd', 4, false, 'true'];
+
+
+  const obj = {};
+  let arr1=[];
+  const checkInput = (err,isValid) =>{
+    let pickOut = arr1.pop();
+
+    if(isValid)
+    {
+      obj[pickOut] = isValid;
+  
+    }
+    else
+    {
+      obj[pickOut] = false;
+    }
+  }
+  
+  setTimeout(()=>{
+    console.log(obj);
+  },510);
+
+ 
+  const arrayElement = () =>{
+    if(inputArray.length!==0)
+    {
+      const value = inputArray.shift();
+     
+      arr1.push(value);
+
+      validateString(value,checkInput);
+      arrayElement();
+     
+      return value;
+    }
+  }
+  
+  arrayElement();
+
+
+  
