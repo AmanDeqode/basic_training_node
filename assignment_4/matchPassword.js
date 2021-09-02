@@ -12,7 +12,7 @@ const askPassword = (enterpassword) =>{
 }
 
 
-const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!#$%&'*+\/=?^_`{|}~-])[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]{8,}$/;
+const regExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!#$%&'*+\/=?^_`{|}~-])\.?[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]{8,}$/;
 
 const passwordValidation = async () =>{
     try {
