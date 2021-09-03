@@ -1,4 +1,4 @@
-let names = ['aman',4,'dhawal','hemant'];
+let names = ['aman','mukul','dhawal','hemant'];
 
 let arr = [];
 const makeAllCaps = (names) =>{
@@ -20,7 +20,7 @@ const makeAllCaps = (names) =>{
 
 makeAllCaps(names).then((data)=>{
     const sortWords = ()=>{
-        return new Promise((resolve,reject)=>{
+        return new Promise((resolve)=>{
             resolve(data.sort())
         })
     }
