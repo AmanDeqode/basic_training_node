@@ -235,8 +235,35 @@ const candidatesArray = [
       ], 
   }
 
-  //  6. length
-
+  const obj1 = {
+    name:'T',
+    technologies:[
+      {
+          name: 'Python',
+          experience: 2,
+        },
+        {
+          name: 'Laravel',
+          experience: 3,
+        },
+        {
+          name: 'DataScience',
+          experience: 2,
+        },
+        {
+          name: 'Angular',
+          experience: 5,
+        },
+        {
+          name: 'Flutter',
+          experience: 2,
+        },
+        {
+          name: 'MySQL',
+          experience: 5,
+        }, 
+    ],
+}
   const calculateLength = (data) =>{
     let length=0;
 
@@ -247,59 +274,76 @@ const candidatesArray = [
     return length;
   }
 
-  const candidatesArrayLength = calculateLength(candidatesArray);
+  let candidatesArrayLength = calculateLength(candidatesArray);
 
   // 1. PUSH method
 
-   candidatesArray[candidatesArrayLength] = obj;
+  Array.prototype.addElementAtLastIndex = (...elements) =>{
+    console.log(elements);
 
-    console.log(JSON.stringify(candidatesArray,undefined,4))
-
-   // =======================================================================================
-
-  // 2. POP method
-
-    candidatesArray[candidatesArrayLength] = candidatesArray[candidatesArrayLength-1];
-
-    console.log(JSON.stringify(candidatesArray,undefined,4))
-
-// ========================================================================================
-
- // 3. shift method
-  
-    for(let i=0;i<candidatesArrayLength-2;i++)
+    for(let element of elements)
     {
-        candidatesArray[i] = candidatesArray[i+1];
+      candidatesArray[candidatesArrayLength] = element;
+      candidatesArrayLength++;
     }
-    candidatesArray[candidatesArrayLength] = candidatesArray[candidatesArrayLength-1];
+  }
 
-   console.log(JSON.stringify(candidatesArray,undefined,4))
+   // 2. POP method
 
-// ==========================================================================================
+    Array.prototype.removeLastIndexElement = () =>{
+      
+       candidatesArrayLength = candidatesArrayLength-1;
+       console.log(candidatesArrayLength);
+       for(let i=0;i<candidatesArrayLength;i++)
+       {
+         console.log(candidatesArray[i]);
+       }
+    }
 
-// 4. unshift method
+  // 3. shift method
 
-   for(let i=candidatesArrayLength;i>=1;i--)
-   {
+    Array.prototype.removeFirstIndexElement = () =>{
+
+      for(let i=0;i<candidatesArrayLength-1;i++)
+      {
+        candidatesArray[i] = candidatesArray[i+1];
+      }
+      candidatesArrayLength = candidatesArrayLength-1;
+      
+      for(let i=0;i<candidatesArrayLength;i++)
+      {
+        console.log(candidatesArray[i]);
+      }
+    }
+
+ // 4. unshift method
+
+    Array.prototype.addElementAtFirstIndex = () =>{
+
+      for(let i=candidatesArrayLength;i>=1;i--)
+      {
         candidatesArray[i] = candidatesArray[i-1]
-   }
-   candidatesArray[0]=obj;
-   console.log(JSON.stringify(candidatesArray,undefined,4));
-
-// ============================================================================================
+      }
+      candidatesArray[0]=obj;
+      candidatesArrayLength++;
+      console.log(candidatesArray);
+      console.log(candidatesArrayLength);
+     }
 
 //  7. splice method
 
-   const splice = (index,data)=>{
+  Array.prototype.addObjectAtSpecificIndex = (index,data) =>{
+
     for(let i=candidatesArrayLength;i>index;i--)
     {
         candidatesArray[i] = candidatesArray[i-1];
     }
     candidatesArray[index] = data;
+    candidatesArrayLength++;
+    
     return candidatesArray;
-   }
+  }
 
-   console.log(splice(1,obj))
 
 // ============================================================================================
 
@@ -310,9 +354,22 @@ const candidatesArray = [
       console.log(JSON.stringify(candidates,undefined,4))
   }
 
+ // 1 push method
 
+ //candidatesArray.addElementAtLastIndex(obj,obj1);
 
+ // 2. pop method
 
+ // candidatesArray.removeLastIndexElement();
 
+ // 3. shift method
 
+ //candidatesArray.removeFirstIndexElement();
 
+  // 4. unshift method
+
+ // candidatesArray.addElementAtFirstIndex();
+
+ // 5. splice method
+
+ // console.log(candidatesArray.addObjectAtSpecificIndex(1,obj));
