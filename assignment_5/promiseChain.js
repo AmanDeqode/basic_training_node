@@ -1,30 +1,33 @@
-let names = ['aman','mukul','dhawal','hemant'];
+let weekDays = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 
 let arr = [];
-const makeAllCaps = (names) =>{
-    return new Promise((resolve,reject)=>{
-        names.forEach((name)=>{
-            if(typeof name!=='string')
+const makeAllCaps = (weekDays) => {
+    return new Promise((resolve,reject) => {
+        for(let day of weekDays)
+        {
+            if(typeof day !== 'string')
             {
-                reject('Error');
+                reject(new Error('Invalied type in array'));
+                break;
             }
             else
             {
-                name = name.toUpperCase();
-                arr.push(name);
+                day = day.toUpperCase();
+                arr.push(day);
             }
-        })
+        }
         resolve(arr);
     });
 }
 
-makeAllCaps(names).then((data)=>{
-    const sortWords = ()=>{
-        return new Promise((resolve)=>{
-            resolve(data.sort())
-        })
-    }
-    sortWords().then((result)=> console.log(result))
+const sortWords = (days)=>{
+    return new Promise((resolve)=>{
+        resolve(days.sort())
+    })
+};
+
+makeAllCaps(weekDays).then((days)=>{
+    sortWords(days).then((day)=> console.log(day))
 }).catch((err)=>{
     console.log(err);
 })
