@@ -36,8 +36,6 @@ for(var i=0;i<10;i++)
     delay(i);
 }
 
-
-
 for(let i=0;i<10;i++)
 {
     setTimeout(()=>{
