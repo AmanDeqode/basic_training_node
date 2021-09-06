@@ -373,3 +373,4 @@ const candidatesArray = [
  // 5. splice method
 
  // console.log(candidatesArray.addObjectAtSpecificIndex(1,obj));
+ 
