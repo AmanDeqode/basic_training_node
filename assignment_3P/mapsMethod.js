@@ -1,4 +1,4 @@
-// Maps in Javascript : We can use any type key and value
+/* // Maps in Javascript : We can use any type key and value
 
 
 const myMap = new Map();
@@ -87,3 +87,186 @@ console.log(mapped.get('orange'));
 let obj = Object.fromEntries(mapped);
 
 console.log(obj);
+ */
+
+let map = new Map();
+
+map.set('1','str1');
+
+map.set(1,'num');
+
+map.set(true,'bool');
+
+map.set('tech',{
+    'front-end': 'React',
+    'back-end':'Node'
+});
+
+map.set('tech',['Node','React']);
+
+const a = {
+    name:'aman'
+}
+
+map.set(a,'its an object');
+
+const b = {
+    name: 'aman'
+}
+
+map.set(b,'its an object');
+
+for(let keys of map.keys())
+{
+    //console.log(keys);
+}
+
+for(let values of map.values())
+{
+    //console.log(values);
+}
+
+for(let entries of map.entries())
+{
+    //console.log(entries);
+}
+
+for( let [key,value] of map.entries())
+{
+    //console.log(`For these ${key} we have ${value} value`)
+}
+
+const keysArray = [...map.keys()];
+
+//console.log(keysArray);
+
+const mapArray = [...map.values()];
+
+//console.log(mapArray);
+
+map.delete(1);
+
+//console.log(map);
+
+
+
+const obj = {
+    'name':'aman',
+    'tech':['Node','React'],
+    true:'bool',
+    12:'number',
+    obj:{
+        name:'object',
+        present:'inside object'
+    },
+    obj:{
+        name:'object1',
+        data:['1',2,true]
+    }
+}
+
+//console.log(obj);
+
+//console.log(typeof obj.true)
+
+let peoples = new Map();
+
+peoples.set('1', 'jhon');
+peoples.set('2', 'jasmein');
+peoples.set('3', 'abdo');
+
+//console.log([...peoples.entries()]);
+
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+function aclean(arr) {
+
+    let map = new Map();
+
+    for(let words of arr)
+    {
+        let sorted = words.toLowerCase().split('').sort().join('');
+
+        map.set(sorted,words);
+    }
+
+  //  console.log(map.values());
+}
+
+aclean(arr);
+
+
+let map_data = new Map();
+
+map_data.set('name','abc');
+
+let keys = Array.from(map_data.keys());
+
+keys.push('email');
+
+//console.log(keys);
+
+
+const operation = new Map();
+
+const users = {
+    name: 'aman',
+    technology:['Node','React'],
+    experience: 0.3,
+}
+
+const callback = () => {
+    console.log('I am a callback function');
+}
+
+function asynchronous() {
+    setTimeout(function() {
+        console.log('I am async in nature');
+    },2000)
+}
+
+
+const printValue = (callback,asynchronous) =>{
+    console.log('The value has been printed');
+    callback();
+
+    asynchronous();
+
+}
+
+operation.set(function(){
+    printValue(callback,asynchronous);
+},function() {
+    return 1+1;
+});
+
+operation.set(users,function(){
+    console.log(users)
+});
+
+operation.set({item:'choclate'},'cadbury');
+
+operation.set(1,'one');
+
+operation.set({},'empty object');
+
+operation.set(true,'boolean');
+
+//console.log(operation);
+
+//console.log(operation.keys())
+
+for(let key of operation.keys())
+{
+    if(typeof key === 'object')
+    {
+        
+        console.log(key);
+    }
+    else if(typeof key === 'function')
+    {
+        console.log(key())
+    }
+    
+}
