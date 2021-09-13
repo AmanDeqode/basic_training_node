@@ -9,7 +9,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node_modules/.bin/eslint"
+      "pre-commit": "node_modules/.bin/eslint --fix"
     }
   },
   "author": "Aman Chaudhary",
