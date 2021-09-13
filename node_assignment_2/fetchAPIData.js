@@ -1,78 +1,80 @@
-const fs = require('fs');
-const path = require('path');
+/* Create a program to fetch content from the API's provided on the following 
+link and store its response in different files in the filesystem.
+ */
+import fs from "fs";
+import path from 'path';
+import express from 'express';
+import dotenv from 'dotenv';
+import axios from 'axios';
 
-const express = require('express');
-const axios = require('axios');
+dotenv.config();
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get('/', async(req,res) => {
+const HOST = process.env.HOST;
+
+const URL = process.env.URL;
+
+const employees = async (req, res) => {
     try {
-        const employees = await axios.get('https://dummy.restapiexample.com/api/v1/employees',{});
+        const employees = await axios.get(`${URL}/employees`, {});
 
         console.log(employees.data.data);
 
         const timestamps = Date.now();
 
-        fs.writeFile(path.join(__dirname,`${timestamps}_employees.txt`),JSON.stringify(employees.data.data), (error) => {
-            if(error)
-            {
+        fs.writeFile(path.join(__dirname, 'output', `${timestamps}_employees.txt`), JSON.stringify(employees.data.data), (error) => {
+            if (error) {
                 console.error("Something went wrong here");
                 return;
             }
-            else
-            {
+            else {
                 console.log('Employees information has been saved successfully into the file');
                 return;
             }
         });
 
-        res.send(employees.data);
-
+        return res.send(employees.data);
     } catch (error) {
-        console.error(error.message);
         throw Error(error.message);
     }
-});
+};
 
-url = 'https://dummy.restapiexample.com/api/v1/';
-
-
-
-app.get('/:id',async(req,res,next) => {
+const getEmployee = async (req, res, method) => {
     try {
+        console.log(method);
         const id = req.params.id;
         const employee = await axios({
-            method:'GET',
-            url:`${url}/employee/${id}`
+            method: 'GET',
+            url: `${URL}/employee/${id}`
         });
-        console.log(employee.data);
 
         const timestamps = Date.now();
 
-        fs.writeFile(path.join(__dirname,`${timestamps}_employees_${id}.txt`),JSON.stringify(employee.data), (error) => {
-            if(error)
-            {
+        fs.writeFile(path.join(__dirname, 'output', `${timestamps}_employees_${id}.txt`), JSON.stringify(employee.data), (error) => {
+            if (error) {
                 console.error("Something went wrong here");
                 return;
             }
-            else
-            {
+            else {
                 console.log('Employees information has been saved successfully into the file');
                 return;
             }
         });
-        res.send(employee.data);
+        return res.send(employee.data);
 
     } catch (error) {
         console.error(error.message);
         throw Error(error.message);
     }
-});
+}
 
-app.listen(PORT,() => {
-    console.log(`Server is connected at ${PORT}`);
-});
+app.get('/', employees);
 
+app.get('/:id', getEmployee);
+
+app.listen(PORT, HOST, () => {
+    console.log(`Server is connected at http://${HOST}:${PORT}`);
+});
