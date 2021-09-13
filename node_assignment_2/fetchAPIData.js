@@ -37,12 +37,16 @@ app.get('/', async(req,res) => {
     }
 });
 
-app.get('/:id',async(req,res) => {
+url = 'https://dummy.restapiexample.com/api/v1/';
+
+
+
+app.get('/:id',async(req,res,next) => {
     try {
         const id = req.params.id;
         const employee = await axios({
             method:'GET',
-            url:`https://dummy.restapiexample.com/api/v1/employee/${id}`
+            url:`${url}/employee/${id}`
         });
         console.log(employee.data);
 
