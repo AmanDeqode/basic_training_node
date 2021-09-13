@@ -1,0 +1,29 @@
+{
+  "name": "node_assignment_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint",
+    "start": "node fetchAPIData.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint ."
+    }
+  },
+  "author": "Aman Chaudhary",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "husky": "^7.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  }
+}
