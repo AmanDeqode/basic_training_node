@@ -42,13 +42,12 @@ const employees = async (req, res) => {
     }
 };
 
-const getEmployee = async (req, res, method) => {
+const getEmployee = async (method, url, id) => {
     try {
-        console.log(method);
-        const id = req.params.id;
+        // const id = req.params.id;
         const employee = await axios({
-            method: 'GET',
-            url: `${URL}/employee/${id}`
+            method,
+            url
         });
 
         const timestamps = Date.now();
@@ -63,7 +62,7 @@ const getEmployee = async (req, res, method) => {
                 return;
             }
         });
-        return res.send(employee.data);
+        return employee.data;
 
     } catch (error) {
         console.error(error.message);
@@ -73,7 +72,12 @@ const getEmployee = async (req, res, method) => {
 
 app.get('/', employees);
 
-app.get('/:id', getEmployee);
+app.get('/:id', async(req, res) => {
+    const id = req.params.id;
+    const url = `${URL}/employee/${id}`;
+    const resp = await getEmployee('get', url, id)
+    res.json(resp);
+});
 
 app.listen(PORT, HOST, () => {
     console.log(`Server is connected at http://${HOST}:${PORT}`);
