@@ -1,0 +1,1 @@
+{"status":"success","data":{"id":8,"employee_name":"Rhona Davidson","employee_salary":327900,"employee_age":55,"profile_image":""},"message":"Successfully! Record has been fetched."}

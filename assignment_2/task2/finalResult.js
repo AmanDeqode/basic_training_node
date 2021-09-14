@@ -5,18 +5,6 @@ const jobs = require('./jobs.json');
 
 const technologies = require('./technologies.json');
 
-// for(let i=0;i<jobsData.length;i++)
-// {
-    
-//     const desArray = jobsData[i].description.split(' ')
-
-//     const matchData = technologyData.filter((tech)=> desArray.includes(tech))
-
-//     jobsData[i].tags = matchData
-
-//     jobsData[i].processing_timestamp = Date.now()
-// }
-
 for(let info of jobs)
 {
     const desArray = info.description.split(' ');
